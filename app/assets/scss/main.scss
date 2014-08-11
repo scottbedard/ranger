@@ -1,0 +1,34 @@
+// Constants
+$footer_height: 40px;
+$edge_padding: 5px;
+$nav_padding: 10px;
+
+@font-face {
+  font-family: 'Abel';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abel'), local('Abel-Regular'), url(http://fonts.gstatic.com/s/abel/v5/brdGGFwqYJxjg2CD1E9o7g.woff2) format('woff2'), url(http://fonts.gstatic.com/s/abel/v5/EAqh528fFdbUek8UOky4sA.woff) format('woff');
+}
+
+html, body {
+	font-family: Abel, "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+@import '_status';
+
+@import '_header';
+
+@import '_navigation';
+
+@import '_content';
+
+@import '_footer';

@@ -1,0 +1,11 @@
+#footer {
+	background: #444 url('/assets/images/footer.png');
+	bottom: 0;
+	box-sizing: border-box;
+	color: #ddd;
+	height: $footer_height;
+	line-height: $footer_height;
+	position: absolute;
+	padding: 0 $edge_padding;
+	width: 100%;
+}

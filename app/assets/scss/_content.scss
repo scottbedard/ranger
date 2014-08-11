@@ -1,0 +1,164 @@
+$link_color: #EE7621;
+$alt_color: #f5f5f5;
+
+#content {
+	padding-bottom: $footer_height;
+
+	a {
+		color: $link_color;
+		text-decoration: none;
+		&:hover { text-decoration: underline; }
+	}
+
+	h1 {
+		font-size: 26px;
+		font-weight: normal;
+		margin: 0;
+	}
+
+	h2 {
+		font-size: 24px;
+		font-weight: normal;
+		margin: 0;
+		margin-top: 10px;
+	}
+
+	h3 {
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+		font-size: 22px;
+	}
+
+	button, input, select {
+		box-sizing: border-box;
+		font-size: 16px;
+		margin-bottom: 10px;
+		text-align: center;
+		padding: 8px;
+		width: 100%;
+	}
+
+	button, input[type=submit] {
+		min-width: 200px;
+		width: auto;
+		cursor: pointer;
+	}
+
+	.center {
+		text-align: center;
+	}
+
+	.empty {
+		margin: 30px 0;
+		font-size: 22px;
+		text-align: center;
+	}
+
+	.label {
+		padding: 0 5px;
+	}
+	.form {
+		padding: 10px 5px;
+		text-align: center;
+	}
+
+	.small {
+		font-size: 16px;
+	}
+
+	// Static pages
+	.page {
+		padding: $edge_padding;
+	}
+
+	// Game Page
+	.game {
+		.section {
+			padding: $edge_padding;
+
+			&:nth-of-type(even) {
+				background: $alt_color;
+			}
+
+			.info {
+				padding: 0 10px;
+				div { 
+					padding-bottom: 5px;
+					overflow: hidden;
+					clear: both;
+
+					span:first-of-type { float: left; }
+					span:last-of-type { float: right;}
+				}
+
+				input, select {
+					box-sizing: border-box;
+					font-size: 16px;
+					margin-bottom: 10px;
+					text-align: center;
+					padding: 8px;
+					width: 100%;
+				}
+
+				input[type=buttom], input[type=submit] {
+					min-width: 150px;
+					width: auto;
+				}
+			}
+		}
+	}
+
+	// Schedule
+
+	.scroll {
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			border-bottom: 1px solid #ddd;
+			overflow: hidden;
+			padding: $edge_padding;
+
+			&:first-of-type { border-top: 1px solid #ddd; }
+			&:nth-of-type(even) { background: $alt_color; }
+			&:hover { background: #fbf2d3; }
+
+			a {
+				color: #000;
+				display: block;
+				text-decoration: none;
+				overflow: hidden;
+			}
+
+			.phone {
+				color: $link_color;
+				&:hover { text-decoration: underline; }
+			}
+
+			.row {
+				width: 100%;
+				clear: both;
+			}
+
+			.location, .teams, .level, .date, .time {
+				display: inline-block;
+			}
+
+			.date, .time { font-size: 20px; }
+			.location, .teams, .level { font-size: 16px; }
+
+			.date { float: left; }
+			.time { float: right; }
+
+			.teams { float: left; }
+			.location { float: right; }
+
+		}
+
+	}
+}

@@ -1,0 +1,50 @@
+/*
+	.status
+*/
+.status {
+	display: block;
+	border: 1px solid;
+	padding: 10px;
+	margin: $edge_padding;
+
+	span {
+		height: 16px;
+		width: 16px;
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	&.error {
+		color: #8a1f11;
+		border-color:#f4686b;
+		background-color: #fbe3e4;
+		span { background: url('/assets/images/status.png') 0 16px; }
+	}
+	&.info {
+		color: #205791;
+		border-color:#92cae4;
+		background-color: #d5edf8;
+		span { background: url('/assets/images/status.png') 0 48px; }
+	}
+	&.success {
+		color: #264409;
+		border-color:#c6d880;
+		background-color: #e6efc2;
+		span { background: url('/assets/images/status.png') 0 0; }
+	}
+	&.warning {
+		color: #514721;
+		border-color:#ffd324;
+		background-color: #feefb3;
+		span { background: url('/assets/images/status.png') 0 32px; }
+	}
+}
+
+a.status {
+	text-decoration: none;
+	&.error:hover { background: #f4686b; }
+	&.info:hover { background: #92cae4; }
+	&.success:hover { background: #c6d880; }
+	&.warning:hover { background: #ffd324; }
+
+}

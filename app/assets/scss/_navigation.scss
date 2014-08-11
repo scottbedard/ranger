@@ -1,0 +1,40 @@
+#navigation {
+	background: url('/assets/images/bg.png') 0 254px repeat;
+	border-bottom: 1px solid #eee;
+	display: none;
+	padding: $nav_padding $edge_padding;
+	padding-bottom: 0;
+	text-align: center;
+
+    a {
+        color: inherit;
+        display: block;
+        text-decoration: none;
+        width: 100%;
+    }
+
+    li {
+        border-radius: 5px;
+        color: #E68A00;
+        display: block;
+    	font-size: 20px;
+        height: 35px;
+    	line-height: 35px;
+        list-style: none;
+        margin-bottom: $nav_padding;
+        text-align: center;
+        text-shadow: 1px 1px #aaa;
+        text-transform: uppercase;
+    }
+
+    li.selected {
+        background: url(/assets/images/bg.png) 0 0;
+        color: #eee;
+        text-shadow: 1px 1px #333;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+}
