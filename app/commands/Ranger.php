@@ -7,7 +7,9 @@ class Ranger {
 	public $games;
 
 	/**
-	 * LoadCache
+	 * __construct
+	 *
+	 * Pulls cached game data
 	 */
 	function __construct( $username )
 	{

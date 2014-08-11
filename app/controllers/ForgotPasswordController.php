@@ -2,6 +2,9 @@
 
 class ForgotPasswordController extends BaseController {
 
+	/**
+	 * __construct
+	 */
 	function __construct()
 	{
 		parent::__construct();
@@ -11,6 +14,8 @@ class ForgotPasswordController extends BaseController {
 	 * index
 	 *
 	 * Displays the forgot password form
+	 *
+	 * @return	View
 	 */
 	public function index()
 	{
@@ -20,14 +25,15 @@ class ForgotPasswordController extends BaseController {
 	/**
 	 * send
 	 *
-	 * Validates the email address, and
-	 * executes ForgotPasswordCommand
+	 * Executes ForgotPasswordCommand
+	 *
+	 * @return	Redirect
 	 */
 	public function send()
 	{
-		// Run ForgotPasswordCommand
-		$command = new ForgotPasswordCommand(Input::get('email'));
+		// Execute ForgotPasswordCommand
 		try {
+			$command = new ForgotPasswordCommand(Input::get('email'));
 			$command->execute();
 		}
 
@@ -39,5 +45,4 @@ class ForgotPasswordController extends BaseController {
 		// Everything worked, redirect to login
 		return Redirect::route('login');
 	}
-
 }

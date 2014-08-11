@@ -2,22 +2,28 @@
 
 class ScheduleController extends BaseController {
 
+	/**
+	 * __construct
+	 */
 	function __construct()
 	{
 		parent::__construct();
 
 		$this->data['date_format'] = 'n/d/Y';
 		$this->data['time_format'] = 'g:ia';
+
+		$this->data['navigation']['schedule']['selected'] = TRUE;
 	}
 
 	/**
 	 * index
+	 *
+	 * Displays user's schedule
+	 *
+	 * @return	View
 	 */
 	public function index()
 	{
-		// Highlight navigation menu
-		$this->data['navigation']['schedule']['selected'] = TRUE;
-
 		// No games on the schedule
 		if ($this->data['ranger']->game_count == 0) {
 			return View::make('schedule.empty');
@@ -32,6 +38,14 @@ class ScheduleController extends BaseController {
 		return View::make('schedule.upcoming')->withData($this->data);
 	}
 
+	/**
+	 * game
+	 *
+	 * Displays game details
+	 * 
+	 * @param	$id
+	 * @return	View
+	 */
 	public function game ( $id )
 	{
 		// Make sure the game exists

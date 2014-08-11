@@ -2,12 +2,12 @@
 
 class LoginCommand {
 
-	protected $username, $password;
-	public $weeks = 16;
-	public $source;
+	protected $username, $password;		// Ranger username / password
+	public $weeks = 16;					// Default schedule scope
+	public $source;						// Ranger response
 
 	/**
-	 * LoginCommand
+	 * __construct
 	 * 
 	 * @param $username
 	 * @param $password
@@ -19,7 +19,7 @@ class LoginCommand {
 	}
 
 	/**
-	 * execute()
+	 * execute
 	 * 
 	 * Submit login details to oswebs
 	 */
@@ -32,7 +32,6 @@ class LoginCommand {
 		}
 
 		// Load the mobile schedule
-		// Load HTML
 		$url = "http://www.oswebs.com/usahjr/officials/mobile.asp";
 		$postdata = http_build_query([
 			'end'	=> $this->weeks,
@@ -47,28 +46,28 @@ class LoginCommand {
 				'content' => $postdata
 			]
 		];
-
 		$context = stream_context_create($opts);
+
+		// Send request to ranger
 		try {
 			$source = file_get_contents($url, false, $context);
 		}
+
+		// HTTP request threw an error
 		catch (ErrorException $e) {
 			throw new RangerOfflineException;
 		}
 
+		// Handle ranger's response
 		if (strpos($source, 'Access Denied')) {
 			// Invalid credentials
 			Flash::warning('Invalid username / password combination.');
 			throw new LoginException;
+
 		} elseif (!$source) {
 			// Ranger is not responding...
 			throw new RangerOfflineException;
 		}
-
-		// Remove passwords from the source
-		$search = ['"'.$this->password.'"', 'pw='.$this->password];
-		$replace = ['"[removed]"', '[removed]'];
-		$source = str_replace($search, $replace, $source);
 
 		// Log the user in
 		$this->login();
@@ -81,20 +80,24 @@ class LoginCommand {
 	/**
 	 * login
 	 *
-	 * Logs a user in
+	 * Logs a user in and sets session variables
 	 */
 	public function login()
 	{
+		// Query the user
 		$user = User::whereUsername($this->username)->first();
 
 		if (!$user) {
+			// New user
 			$user = User::create([
 				'username' => $this->username,
 				'lastseen' => time()
 			]);
 			Flash::message(	'Thanks for signing up!<br /><br />'.
 							'Make sure to update your account settings so we can accuaretly calculate driving distances.');
+
 		} else {
+			// Returning user
 			$user->lastseen = time();
 			$user->save();
 		}
@@ -106,8 +109,7 @@ class LoginCommand {
 	/**
 	 * parse
 	 *
-	 * Parse 16 week mobile schedule into json,
-	 * representation, and cache the results.
+	 * Parse mobile schedule into json representation, and caches the results.
 	 */
 	public function parse()
 	{
@@ -119,6 +121,7 @@ class LoginCommand {
 			$output['game_count'] = 2;
 		}
 
+		// Placeholder...
 		$output['games'] = [
 			[
 				'date'	=> 1409680800,
@@ -164,6 +167,7 @@ class LoginCommand {
 				]
 			]
 		];
+		// End placeholder
 
 		File::put('cache/'.$this->username.'.json', json_encode($output));
 	}

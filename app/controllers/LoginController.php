@@ -6,6 +6,8 @@ class LoginController extends BaseController {
 	 * index
 	 *
 	 * Displays the login form
+	 *
+	 * @return	Redirect
 	 */
 	public function index()
 	{
@@ -15,19 +17,21 @@ class LoginController extends BaseController {
 	/**
 	 * send
 	 *
-	 * Sends the login details to oswebs
+	 * Sends the login details to oswebs. Login creditials
+	 * may be sent through the index form, or through the URL.
 	 * 
-	 * @param	$username
-	 * @param	$password
+	 * @param	Bool	$username
+	 * @param	Bool	$password
+	 * @return  Redirect
 	 */
 	public function send ( $username = FALSE, $password = FALSE )
 	{
 		// Extract login data from form if none is present in the url
 		if (!$username && !$password) extract (Input::only('username', 'password'));
 
-		// Send data
-		$command = new LoginCommand($username, $password);
+		// Send login data
 		try {
+			$command = new LoginCommand($username, $password);
 			$command->execute();
 		}
 
@@ -39,5 +43,4 @@ class LoginController extends BaseController {
 		// Everything worked, redirect to the schedule
 		return Redirect::route('schedule');
 	}
-
 }

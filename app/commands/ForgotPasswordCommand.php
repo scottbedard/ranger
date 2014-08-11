@@ -5,9 +5,9 @@ class ForgotPasswordCommand {
 	protected $email;
 
 	/**
-	 * ForgotPasswordCommand
+	 * __construct
 	 * 
-	 * @param $email
+	 * @param	$email
 	 */
 	function __construct( $email )
 	{
@@ -15,7 +15,7 @@ class ForgotPasswordCommand {
 	}
 
 	/**
-	 * execute()
+	 * execute
 	 * 
 	 * Contacts oswebs and submit the forgot password form
 	 */

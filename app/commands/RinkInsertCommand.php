@@ -10,6 +10,11 @@ class RinkInsertCommand {
 	public $zip;
 	public $phone;
 
+	/**
+	 * __construct
+	 * 
+	 * @param	$code, $name, $address, $city, $state, $zip, $phone
+	 */
 	function __construct( $code, $name, $address, $city, $state, $zip, $phone )
 	{
 		$this->code = $code;
@@ -21,6 +26,9 @@ class RinkInsertCommand {
 		$this->phone = $phone;
 	}
 
+	/**
+	 * execute
+	 */
 	public function execute()
 	{
 		// Validate the input
@@ -49,6 +57,7 @@ class RinkInsertCommand {
 			throw new ValidationFailedException;
 		}
 
+		// Store the rink information
 		$rink = new Rink([
 			'code' => strtoupper($this->code),
 			'name' => ucwords(strtolower($this->name)),
@@ -58,14 +67,15 @@ class RinkInsertCommand {
 			'zip' => $this->zip,
 			'added_by' => Session::get('user_id')
 		]);
-
 		$result = $rink->save();
 
+		// Handle exceptions
 		if (!$result) {
 			Flash::error('An unknown error has occured while trying to save rink information.');
 			throw new ValidationFailedException;
 		}
 
+		// Everything worked
 		Flash::success('Thanks for helping out!');
 	}
 }

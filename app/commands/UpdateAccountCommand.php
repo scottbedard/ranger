@@ -7,10 +7,9 @@ class UpdateAccountCommand {
 	protected $cell_carrier;
 
 	/**
-	 * UpdateAccountCommand
+	 * __construct
 	 * 
-	 * @param $username
-	 * @param $password
+	 * @param $base, $cell_number, $cell_carrier
 	 */
 	function __construct( $base = NULL, $cell_number = NULL, $cell_carrier = NULL )
 	{
@@ -19,6 +18,9 @@ class UpdateAccountCommand {
 		$this->cell_carrier = $cell_carrier;
 	}
 
+	/**
+	 * execute
+	 */
 	public function execute()
 	{
 		// Validation

@@ -5,12 +5,20 @@ class RinkVerifyCommand {
 	public $code;
 	public $action;
 
+	/**
+	 * __construct
+	 * 
+	 * @param $code, $action
+	 */
 	function __construct( $code, $action )
 	{
 		$this->code = $code;
 		$this->action = $action;
 	}
 
+	/**
+	 * execute
+	 */
 	public function execute()
 	{
 		// Load the rink, and throw an exception if it fails

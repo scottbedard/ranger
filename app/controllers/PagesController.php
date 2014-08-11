@@ -3,7 +3,9 @@
 class PagesController extends BaseController {
 
 	/**
-	 * Login Controller
+	 * Login page
+	 *
+	 * @return	View
 	 */
 	public function login()
 	{
