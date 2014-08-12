@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Ranger</title>
-		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 		<link rel="icon" href="/assets/images/icon.png"/>
