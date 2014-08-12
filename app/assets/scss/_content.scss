@@ -1,5 +1,5 @@
 $link_color: #EE7621;
-$alt_color: #e5e5e5;
+$alt_color: #efefef;
 
 #content {
 	padding-bottom: $footer_height;
@@ -10,23 +10,22 @@ $alt_color: #e5e5e5;
 		&:hover { text-decoration: underline; }
 	}
 
+	h1, h2, h3 {
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+	}
+
 	h1 {
 		font-size: 26px;
-		font-weight: normal;
-		margin: 0;
 	}
 
 	h2 {
 		font-size: 24px;
-		font-weight: normal;
-		margin: 0;
 		margin-top: 10px;
 	}
 
 	h3 {
-		margin: 0;
-		padding: 0;
-		font-weight: normal;
 		font-size: 22px;
 	}
 
@@ -40,6 +39,9 @@ $alt_color: #e5e5e5;
 	}
 
 	button, input[type=submit] {
+		appearance: none;
+		background: linear-gradient(#dfdfdf, #efefef);
+		border: 1px solid #bbb;
 		min-width: 200px;
 		width: auto;
 		cursor: pointer;
@@ -92,7 +94,7 @@ $alt_color: #e5e5e5;
 					span:last-of-type { float: right;}
 				}
 
-				input, select {
+				input[type=text], input[type=email], input[type=number], select {
 					box-sizing: border-box;
 					font-size: 16px;
 					margin-bottom: 10px;
@@ -101,10 +103,6 @@ $alt_color: #e5e5e5;
 					width: 100%;
 				}
 
-				input[type=buttom], input[type=submit] {
-					min-width: 150px;
-					width: auto;
-				}
 			}
 		}
 	}

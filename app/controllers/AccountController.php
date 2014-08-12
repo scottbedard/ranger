@@ -36,8 +36,15 @@ class AccountController extends BaseController {
 		extract(Input::all());
 
 		// Execute command
-		$command = new UpdateAccountCommand($base, $cell_number, $cell_carrier);
-		$command->execute();
+		try {
+			$command = new UpdateAccountCommand($base, $cell_number, $cell_carrier);
+			$command->execute();
+		}
+
+		// Catch UpdateAccountException
+		catch (UpdateAccountException $e) {
+			return Redirect::back()->withInput();
+		}
 
 		// Redirect to account page
 		return Redirect::route('account');

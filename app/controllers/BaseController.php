@@ -9,15 +9,12 @@ class BaseController extends Controller {
 	 */
 	function __construct()
 	{
+		$this->data['date_format'] = 'n/d/Y';
+		$this->data['time_format'] = 'g:ia';
+
 		if (Session::get('user_id')) {
 			// User Navigaiton
-			$this->data['navigation'] = [
-				'account'	=> ['name' => 'My Account'],
-				'schedule'	=> ['name' => 'Schedule'],
-				'rinks'		=> ['name' => 'Rinks'],
-				'officials'	=> ['name' => 'Officials'],
-				'logout'	=> ['name' => 'Log Out']
-			];
+			$this->data['navigation'] = navigation('user');
 
 			// Data for authenticated user
 			$this->data['user'] = User::find(Session::get('user_id'));
@@ -25,9 +22,7 @@ class BaseController extends Controller {
 			
 		} else {
 			// Guest Navigation
-			$this->data['navigation'] = [
-				'login' => ['name' => 'Login']
-			];
+			$this->data['navigation'] = navigation('guest');
 
 		}
 	}

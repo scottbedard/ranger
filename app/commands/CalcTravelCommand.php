@@ -17,6 +17,7 @@ class CalcTravelCommand {
 		// Assign start and end
 		$this->start = ($zip1 < $zip2) ? $zip1 : $zip2;
 		$this->end = ($zip1 < $zip2) ? $zip2 : $zip1;
+
 	}
 
 	/**

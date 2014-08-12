@@ -14,7 +14,10 @@
 
 		@if (isset($data['rink']))
 			<div class="section">
-				@include('layouts.partials.rink')
+				<h1>Location</h1>
+				<div class="info">
+					@include('layouts.partials.rink')
+				</div>
 			</div>
 			@if ($data['display_travel'])
 				<div class="section">

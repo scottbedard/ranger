@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>rtRanger</title>
+		<title>Ranger</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-		<link rel="apple-touch-icon" href="/assets/images/icon.png"/>
+		<link rel="icon" href="/assets/images/icon.png"/>
 		<!--[if lt IE 7]>
 		<style media="screen" type="text/css">
 		#container {
@@ -19,7 +20,7 @@
 
 			<div id="header">
 				<div class="logo">
-					<a href="/">odp</a>
+					<a href="/">Ranger</a>
 				</div>
 
 				<div class="menu">

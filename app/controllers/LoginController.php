@@ -22,7 +22,7 @@ class LoginController extends BaseController {
 	 * 
 	 * @param	Bool	$username
 	 * @param	Bool	$password
-	 * @return  Redirect
+	 * @return  View / Redirect
 	 */
 	public function send ( $username = FALSE, $password = FALSE )
 	{
@@ -40,7 +40,20 @@ class LoginController extends BaseController {
 			return Redirect::route('login')->withInput();
 		}
 
-		// Everything worked, redirect to the schedule
-		return Redirect::route('schedule');
+		// Load authenticated navigation
+		$this->data['navigation'] = navigation('user');
+
+		// Redirect to schedule route if Ranger is already defined.
+		// This will keep the login credentials out of the URL when it's not needed.
+		if (isset($this->data['ranger'])) return Redirect::route('schedule');
+		else $this->data['ranger'] = new Ranger($username);
+
+		// No games on the schedule
+		if ($this->data['ranger']->game_count == 0) {
+			return View::make('schedule.empty');
+		}
+
+		// Display upcoming games
+		return View::make('schedule.upcoming')->withData($this->data);
 	}
 }

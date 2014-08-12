@@ -27,7 +27,7 @@ class UpdateAccountCommand {
 		if (!empty($this->base) && !ctype_digit($this->base)) {
 			Flash::warning('Home base zip code may only contain numbers.');
 			throw new UpdateAccountException;
-		} elseif(!ctype_digit($this->cell_number)) {
+		} elseif(!empty($this->cell_number) && (!ctype_digit($this->cell_number) || strlen($this->cell_number) != 10)) {
 			Flash::warning('Cell phone number should contain only numbers and be 10 digets long.');
 			throw new UpdateAccountException;
 		}

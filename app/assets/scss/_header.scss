@@ -1,8 +1,8 @@
 #header {
 	background: #d27e41 url('/assets/images/header.png');
 	color: #fff;
-	height: 55px;
-	line-height: 55px;
+	height: 60px;
+	line-height: 60px;
 	padding: 0 $edge_padding;
 	text-shadow: 1px 1px #333;
 
@@ -15,7 +15,7 @@
 	.logo {
 		display: inline-block;
 		float: left;
-		font-size: 32px;
+		font-size: 34px;
 	}
 
 	// Navigation Menu
@@ -25,7 +25,7 @@
 
 		img {
 			cursor: pointer;
-			height: 15px;
+			height: 20px;
 			margin-top: -2px;
 			margin-right: 3px;
 			vertical-align: middle;

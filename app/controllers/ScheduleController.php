@@ -8,10 +8,6 @@ class ScheduleController extends BaseController {
 	function __construct()
 	{
 		parent::__construct();
-
-		$this->data['date_format'] = 'n/d/Y';
-		$this->data['time_format'] = 'g:ia';
-
 		$this->data['navigation']['schedule']['selected'] = TRUE;
 	}
 
@@ -62,7 +58,7 @@ class ScheduleController extends BaseController {
 		$this->data['rink'] = Rink::where('code', $this->data['game']->code)->first();
 
 		// Look up travel from home base
-		if ($this->data['rink'] && !empty($this->data['user']['base'])) {
+		if (!empty($this->data['rink']['zip']) && !empty($this->data['user']['base'])) {
 			$command = new CalcTravelCommand($this->data['user']['base'], $this->data['rink']['zip']);
 			$this->data['game']->travel['base'] = $command->execute();
 			if ($this->data['game']->travel['base']) $this->data['display_travel'] = TRUE;
@@ -73,7 +69,7 @@ class ScheduleController extends BaseController {
 			$this->data['prev'] = $this->data['ranger']->games[($id - 1)];
 			$this->data['prev']->rink = Rink::where('code', $this->data['prev']->code)->first();
 
-			if (isset($this->data['prev']->rink['zip']) && isset($this->data['game']->rink['zip'])) {
+			if (!empty($this->data['prev']->rink['zip']) && !empty($this->data['rink']['zip'])) {
 				$command = new CalcTravelCommand($this->data['prev']->rink['zip'], $this->data['rink']['zip']);
 				$this->data['game']->travel['prev'] = $command->execute();
 				if ($this->data['game']->travel['prev']) $this->data['display_travel'] = TRUE;
@@ -85,12 +81,14 @@ class ScheduleController extends BaseController {
 			$this->data['next'] = $this->data['ranger']->games[($id + 1)];
 			$this->data['next']->rink = Rink::where('code', $this->data['next']->code)->first();
 
-			if (isset($this->data['next']->rink['zip']) && isset($this->data['game']->rink['zip'])) {
+			if (!empty($this->data['next']->rink['zip']) && !empty($this->data['rink']['zip'])) {
 				$command = new CalcTravelCommand($this->data['next']->rink['zip'], $this->data['rink']['zip']);
 				$this->data['game']->travel['next'] = $command->execute();
 				if ($this->data['game']->travel['next']) $this->data['display_travel'] = TRUE;
 			}
 		}
+
+		//dd ($this->data['game']->travel);
 
 		// Load crew phone numbers
 		$this->data['contacts'] = [];

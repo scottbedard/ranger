@@ -47,13 +47,13 @@ class RinkInsertCommand {
 				'address' => 'required',
 				'city' => 'required',
 				'state' => 'required|alpha|size:2',
-				'zip' => 'required|integer|digits:5'
+				'zip' => 'required|regex:/[0-9]{5}/'
 			]
 		);
 
 		// Throw an exception if it fails
 		if ($validation->fails()) {
-			Flash::warning('Something didn\'t look right with that address, please make sure you\'ve filled everything out correctly.');
+			Flash::warning('That address doesn\'t look right, please make sure it\'s correct and try again.');
 			throw new ValidationFailedException;
 		}
 
