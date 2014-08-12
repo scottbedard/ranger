@@ -20,8 +20,8 @@ class LoginController extends BaseController {
 	 * Sends the login details to oswebs. Login creditials
 	 * may be sent through the index form, or through the URL.
 	 * 
-	 * @param	Bool	$username
-	 * @param	Bool	$password
+	 * @param	string	$username
+	 * @param	string	$password
 	 * @return  View / Redirect
 	 */
 	public function send ( $username = FALSE, $password = FALSE )

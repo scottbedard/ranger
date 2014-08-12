@@ -29,7 +29,7 @@ $alt_color: #efefef;
 		font-size: 22px;
 	}
 
-	button, input, select {
+	input[type=text], input[type=number], input[type=email], select {
 		box-sizing: border-box;
 		font-size: 16px;
 		margin-bottom: 10px;
@@ -39,7 +39,8 @@ $alt_color: #efefef;
 	}
 
 	button, input[type=submit] {
-		border: 1px solid #bbb;
+		box-sizing: border-box;
+		padding: 8px;
 		min-width: 200px;
 		width: auto;
 		cursor: pointer;
@@ -90,15 +91,6 @@ $alt_color: #efefef;
 
 					span:first-of-type { float: left; }
 					span:last-of-type { float: right;}
-				}
-
-				input[type=text], input[type=email], input[type=number], select {
-					box-sizing: border-box;
-					font-size: 16px;
-					margin-bottom: 10px;
-					text-align: center;
-					padding: 8px;
-					width: 100%;
 				}
 
 			}
