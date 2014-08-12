@@ -11,7 +11,7 @@
 					We can calculate how long it will take to drive to your games, just enter your home zip code below.
 				</div>
 				<div class="form">
-					{{ Form::input('number', 'base', $data['user']['base'], ['placeholder' => 'Home Base', 'max' => 99999]); }}
+					{{ Form::input('tel', 'base', $data['user']['base'], ['placeholder' => 'Home Base']); }}
 				</div>
 			</div>
 
@@ -21,7 +21,7 @@
 					To be notified of upcoming games, enter your cell phone number and carrier and we'll send you a text message the day before your game.
 				</div>
 				<div class="form">
-					{{ Form::input('number', 'cell_number', $data['user']['cell_number'], ['placeholder' => 'Phone Number', 'max' => 9999999999]) }}
+					{{ Form::input('tel', 'cell_number', $data['user']['cell_number'], ['placeholder' => 'Phone Number']) }}
 					{{ Form::select('cell_carrier', [
 						'txt.att.net' => 'AT&T',
 						'cingularme.com' => 'Cingular',

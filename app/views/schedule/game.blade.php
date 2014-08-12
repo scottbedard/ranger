@@ -115,8 +115,8 @@
 							'WI' => 'Wisconsin',
 							'WY' => 'Wyoming'
 						]); }}
-						{{ Form::input('number', 'zip', NULL, ['placeholder' => 'Zip Code', 'max' => 99999]); }}
-						{{ Form::text('phone', NULL, ['placeholder' => 'Phone Number']) }}
+						{{ Form::input('tel', 'zip', NULL, ['placeholder' => 'Zip Code']); }}
+						{{ Form::input('tel', 'phone', NULL, ['placeholder' => 'Phone Number']) }}
 						<div class="center">
 							{{ Form::submit('Submit') }}
 						</div>
