@@ -2,6 +2,9 @@
 <html>
 	<head>
 		<title>Ranger</title>
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 		<link rel="icon" href="/assets/images/icon.png"/>
