@@ -2,14 +2,16 @@
 
 class PagesController extends BaseController {
 
-	/**
-	 * Login page
-	 *
-	 * @return	View
-	 */
-	public function login()
+	function __construct()
 	{
-		return View::make('pages.login');
+		parent::__construct();
 	}
 
+	/**
+	 * About page
+	 */
+	public function about()
+	{
+		return View::make('pages.about')->withData($this->data);
+	}
 }

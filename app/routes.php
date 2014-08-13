@@ -3,6 +3,9 @@
 // Home (ScheduleController)
 Route::get('/', ['before' => 'auth', 'as' => 'home', 'uses' => 'ScheduleController@index']);
 
+// General pages
+Route::get('about', ['as' => 'pages.about', 'uses' => 'PagesController@about']);
+
 // Login
 Route::get('login', ['as' => 'login', 'uses' => 'LoginController@index']);
 Route::post('login', ['as' => 'login', 'uses' => 'LoginController@send']);

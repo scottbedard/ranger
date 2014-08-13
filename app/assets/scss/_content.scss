@@ -39,11 +39,24 @@ $alt_color: #efefef;
 	}
 
 	button, input[type=submit] {
+		$bg_start: #f5f5f5;
+		$bg_end: #e5e5e5;
+		appearance: none;
+		background: linear-gradient($bg_start, $bg_end);
+		border: 1px solid #999;
 		box-sizing: border-box;
 		padding: 8px;
 		min-width: 200px;
 		width: auto;
 		cursor: pointer;
+
+		&:hover {
+			border: 1px solid #444;
+		}
+
+		&:active {
+			background: linear-gradient($bg_end, $bg_start);
+		}
 	}
 
 	.center {

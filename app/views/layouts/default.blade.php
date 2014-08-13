@@ -53,7 +53,7 @@
 			</div>
 
 			<div id="footer">
-				footer
+				Info
 			</div>
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/functions.js"></script>

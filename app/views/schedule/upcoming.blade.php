@@ -13,7 +13,7 @@
 						</div>
 						<div class="row">
 							<div class="teams">
-								{{ $game->teams }}
+								{{ $game->level }}
 							</div>
 							<div class="location">
 								@if (!empty($game->rink))
