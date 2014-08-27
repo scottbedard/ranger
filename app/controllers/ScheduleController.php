@@ -11,6 +11,24 @@ class ScheduleController extends BaseController {
 		$this->data['navigation']['schedule']['selected'] = TRUE;
 	}
 
+	public function accept()
+	{
+		// Send accept data
+		$username = Session::get('ranger_username');
+		$password = Session::get('ranger_password');
+		try {
+			$command = new AcceptGamesCommand($username, $password, $this->data['ranger']);
+			$command->execute();
+		}
+
+		// Accept failed, redirect back to the login page
+		catch (AcceptGamesCommand $e) {
+			return Redirect::route('login');
+		}
+
+		return Redirect::to('login/'.$username.'/'.$password);
+	}
+
 	/**
 	 * index
 	 *
@@ -25,13 +43,26 @@ class ScheduleController extends BaseController {
 			return View::make('schedule.empty');
 		}
 
-		// Load rinks
-		foreach ($this->data['ranger']->games as $id => $game) {
-			$this->data['ranger']->games[$id]->rink = Rink::where('code', $game->code)->first();
+		// Display pending games
+		if (isset($this->data['ranger']->pending)) {
+			// Persist the ranger credentials
+			Session::keep(['ranger_username', 'ranger_password']);
+
+			// Load rinks
+			foreach ($this->data['ranger']->pending as $id => $game) {
+				$this->data['ranger']->pending[$id]->rink = Rink::where('code', $game->code)->first();
+			}
+			return View::make('schedule.pending')->withData($this->data);
 		}
 
-		// Display upcoming games
-		return View::make('schedule.upcoming')->withData($this->data);
+		// Display schedule
+		elseif (isset($this->data['ranger']->games)) {
+			// Load rinks
+			foreach ($this->data['ranger']->games as $id => $game) {
+				$this->data['ranger']->games[$id]->rink = Rink::where('code', $game->code)->first();
+			}
+			return View::make('schedule.upcoming')->withData($this->data);
+		}
 	}
 
 	/**

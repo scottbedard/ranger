@@ -54,6 +54,6 @@ class LoginController extends BaseController {
 		}
 
 		// Display upcoming games
-		return View::make('schedule.upcoming')->withData($this->data);
+		return Redirect::route('schedule');
 	}
 }

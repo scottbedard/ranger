@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * Game Date Helper
+ *
+ * @param	date	[string]
+ * @param	time	[string]
+ * @return	[int]
+ */
+function gameDate($date, $time)
+{
+	// Since Ranger doesn't provide the year of the game, we'll assume that July to December is this 2014
+	// and January to July is 2015
+	$date = explode(' ', $date);
+
+	return strtotime($date[1].' '.$date[0].' 2014 '.$time);
+}
+
+/**
  * Icon Helper
  * 
  * @param  $icon

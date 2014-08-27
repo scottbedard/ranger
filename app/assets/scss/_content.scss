@@ -81,6 +81,29 @@ $alt_color: #efefef;
 		font-size: 16px;
 	}
 
+	// Pending games
+	.pending_label {
+		font-size: 28px;
+		padding: 10px;
+		text-align: center;
+	}
+	.pending_accept {
+
+		margin-top: 20px;
+		text-align: center;
+
+		a {
+			display: inline-block;
+			border-radius: 3px;
+			width: 200px;
+			background: #d27e41 url('/assets/images/header.png');
+			padding: 10px 20px;
+			color: #fff;
+			text-align: center;
+		}
+	}
+
+
 	// Static pages
 	.page {
 		padding: $edge_padding;

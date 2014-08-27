@@ -35,6 +35,7 @@ Route::group(['before' => 'auth'], function() {
 	// Schedule
 	Route::get('schedule', ['as' => 'schedule', 'uses' => 'ScheduleController@index']);
 	Route::get('game/{id}', ['as' => 'game', 'uses' => 'ScheduleController@game']);
+	Route::get('schedule/accept', ['as' => 'schedule.accept', 'uses' => 'ScheduleController@accept']);
 
 	// Rinks
 	Route::get('rinks/info/{code}', ['as' => 'rinks.info', 'uses' => 'RinksController@info']);
