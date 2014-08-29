@@ -18,7 +18,7 @@
 
 <div class="center" style="padding-top: 10px">
 	<div class="button">
-		<a href="{{	'http://maps.apple.com/?q=#'.
+		<a href="{{	'http://maps.apple.com/?q='.
 					str_replace(' ', '+', $data['rink']['address'].', '.
 					$data['rink']['city'].' '.
 					$data['rink']['state'].', '.
