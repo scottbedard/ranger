@@ -42,14 +42,15 @@ $alt_color: #efefef;
 		$bg_start: #f5f5f5;
 		$bg_end: #e5e5e5;
 		appearance: none;
-		border-radius: 3px;
-		width: 200px;
 		background: #d27e41 url('/assets/images/header.png');
-		padding: 10px 20px;
-		color: #fff;
-		box-sizing: border-box;
+		border-radius: 3px;
 		border:0;
+		box-sizing: border-box;
+		color: #fff;
 		cursor: pointer;
+		font-size: 16px;
+		padding: 15px 20px;
+		width: 200px;
 
 		&:active {
 			background: linear-gradient($bg_end, $bg_start);
@@ -90,13 +91,14 @@ $alt_color: #efefef;
 		text-align: center;
 
 		a {
-			display: inline-block;
-			border-radius: 3px;
-			width: 200px;
 			background: #d27e41 url('/assets/images/header.png');
-			padding: 10px 20px;
+			border-radius: 3px;
 			color: #fff;
+			display: inline-block;
+			font-size: 16px;
+			padding: 15px 20px;
 			text-align: center;
+			width: 200px;
 		}
 	}
 
@@ -170,8 +172,8 @@ $alt_color: #efefef;
 				display: inline-block;
 			}
 
-			.date, .time { font-size: 20px; }
-			.location, .teams, .level { font-size: 16px; }
+			.date, .time { font-size: 22px; }
+			.location, .teams, .level { font-size: 18px; }
 
 			.date { float: left; }
 			.time { float: right; }

@@ -15,6 +15,16 @@
 				</div>
 			</div>
 
+			<?php
+			/**
+			 * Due to other projects, I don't have time to flesh out this functionality right now.
+			 * The plan is to set up a cron that will email your carriers sms forwarder, so that
+			 * the user gets a text message with information such as the rink address, travel time,
+			 * partners phone numbers, etc..
+			 *
+			 * If anyone reading this feels like writing this, please go right ahead!
+			 */
+			/*
 			<div class="section">
 				<h2>Notifications</h2>
 				<div class="label">
@@ -33,7 +43,8 @@
 					<div class="small">Don't see your carrier? <a href="#">Contact us</a></div>
 				</div>
 			</div>
-
+			*/
+			?>
 			<div class="form">
 				{{ Form::submit('Save') }}
 			</div>
