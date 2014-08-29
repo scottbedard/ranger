@@ -17,11 +17,13 @@
 </div>
 
 <div class="center" style="padding-top: 10px">
-	<button class="navigate"
-			value="{{	$data['rink']['address'].', '.
-						$data['rink']['city'].' '.
-						$data['rink']['state'].', '.
-						$data['rink']['zip'] }}">Launch Navigation</button>
+	<div class="button">
+		<a href="{{	'http://maps.apple.com/?q=#'.
+					str_replace(' ', '+', $data['rink']['address'].', '.
+					$data['rink']['city'].' '.
+					$data['rink']['state'].', '.
+					$data['rink']['zip']) }}">Launch Navigation</a>
+	</div>
 	@if ($data['rink']['locked_by'] == 0)
 		@if ($data['rink']['reported_by'] == 0)
 			<div>

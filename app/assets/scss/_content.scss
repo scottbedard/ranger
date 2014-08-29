@@ -42,17 +42,14 @@ $alt_color: #efefef;
 		$bg_start: #f5f5f5;
 		$bg_end: #e5e5e5;
 		appearance: none;
-		background: linear-gradient($bg_start, $bg_end);
-		border: 1px solid #999;
+		border-radius: 3px;
+		width: 200px;
+		background: #d27e41 url('/assets/images/header.png');
+		padding: 10px 20px;
+		color: #fff;
 		box-sizing: border-box;
-		padding: 8px;
-		min-width: 200px;
-		width: auto;
+		border:0;
 		cursor: pointer;
-
-		&:hover {
-			border: 1px solid #444;
-		}
 
 		&:active {
 			background: linear-gradient($bg_end, $bg_start);
@@ -87,7 +84,7 @@ $alt_color: #efefef;
 		padding: 10px;
 		text-align: center;
 	}
-	.pending_accept {
+	.button {
 
 		margin-top: 20px;
 		text-align: center;

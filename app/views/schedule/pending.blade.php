@@ -28,7 +28,7 @@
 				<?php $i++; ?>
 			@endforeach
 		</ul>
-		<div class="pending_accept">
+		<div class="button">
 			{{ link_to_route('schedule.accept', 'Accept') }}
 		</div>
 	</div>
