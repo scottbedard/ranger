@@ -53,7 +53,7 @@
 			</div>
 
 			<div id="footer">
-				Info
+				{{ link_to_route('pages.about', 'About') }}
 			</div>
 			<script src="/assets/js/jquery.min.js"></script>
 			<script src="/assets/js/functions.js"></script>
