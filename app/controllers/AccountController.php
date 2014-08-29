@@ -35,6 +35,9 @@ class AccountController extends BaseController {
 		// Extract input [ $base, $cell_number, $cell_carrier ]
 		extract(Input::all());
 
+		// Hopefully I'll come back to the cell phone notifications and finish these
+		$cell_number = $cell_carrier = FALSE;
+
 		// Execute command
 		try {
 			$command = new UpdateAccountCommand($base, $cell_number, $cell_carrier);
