@@ -55,7 +55,11 @@
 			@endif
 		@else
 			<div class="section">
-				<h1>Rink</h1>
+				<h1>Rink Code</h1>
+				<div class="info" style="text-align: center">{{ $data['game']->code }}</div>
+			</div>
+			<div class="section">
+				<h1>Address</h1>
 				<div class="info">
 					<div>Nobody has entered an address for this rink yet, help out your fellow officials by letting us know where it is!</div>
 					{{ Form::open(['route' => 'rinks']) }}
