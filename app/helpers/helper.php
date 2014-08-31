@@ -53,7 +53,7 @@ function navigation ( $scope ) {
 			'account'	=> ['name' => 'My Account'],
 			'schedule'	=> ['name' => 'Schedule'],
 			'rinks'		=> ['name' => 'Rinks'],
-			'officials'	=> ['name' => 'Officials'],
+			//'officials'	=> ['name' => 'Officials'],
 			'logout'	=> ['name' => 'Log Out']
 		];
 	} else {

@@ -53,7 +53,31 @@ class LoginController extends BaseController {
 			return View::make('schedule.empty');
 		}
 
-		// Display upcoming games
-		return Redirect::route('schedule');
+		// Display schedule...
+		// No games on the schedule
+		if ($this->data['ranger']->game_count == 0) {
+			return View::make('schedule.empty');
+		}
+
+		// Display pending games
+		if (isset($this->data['ranger']->pending)) {
+			// Persist the ranger credentials
+			Session::keep(['ranger_username', 'ranger_password']);
+
+			// Load rinks
+			foreach ($this->data['ranger']->pending as $id => $game) {
+				$this->data['ranger']->pending[$id]->rink = Rink::where('code', $game->code)->first();
+			}
+			return View::make('schedule.pending')->withData($this->data);
+		}
+
+		// Display schedule
+		elseif (isset($this->data['ranger']->games)) {
+			// Load rinks
+			foreach ($this->data['ranger']->games as $id => $game) {
+				$this->data['ranger']->games[$id]->rink = Rink::where('code', $game->code)->first();
+			}
+			return View::make('schedule.upcoming')->withData($this->data);
+		}
 	}
 }

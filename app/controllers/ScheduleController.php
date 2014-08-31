@@ -119,8 +119,6 @@ class ScheduleController extends BaseController {
 			}
 		}
 
-		//dd ($this->data['game']->travel);
-
 		// Load crew phone numbers
 		$this->data['contacts'] = [];
 		foreach ($this->data['game']->crew->referees as $referee) {
