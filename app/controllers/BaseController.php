@@ -18,7 +18,7 @@ class BaseController extends Controller {
 
 			// Data for authenticated user
 			$this->data['user'] = User::find(Session::get('user_id'));
-			$this->data['ranger'] = new Ranger('ssbedard');
+			$this->data['ranger'] = new Ranger($this->data['user']->username);
 			
 		} else {
 			// Guest Navigation
